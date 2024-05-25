@@ -77,25 +77,29 @@ const Table = ({
             ))}
         </tbody>
       </table>
-      <div className="pagination">
-        <button onClick={onPreviousPage} disabled={currentPage === 1}>
-          Previous
-        </button>
-        <span>
-          Page {currentPage} of {totalPages}
-        </span>
-        <button onClick={onNextPage} disabled={currentPage === totalPages}>
-          Next
-        </button>
-      </div>
-      <div>
-        <label htmlFor="itemsPerPage">Items Per Page:</label>
-        <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
-          <option>3</option>
-          <option>5</option>
-          <option>10</option>
-        </select>
-      </div>
+      {!!totalPages && (
+        <div className="table-footer">
+          <div className="pagination">
+            <button onClick={onPreviousPage} disabled={currentPage === 1}>
+              Previous
+            </button>
+            <span>
+              Page {currentPage} of {totalPages}
+            </span>
+            <button onClick={onNextPage} disabled={currentPage === totalPages}>
+              Next
+            </button>
+          </div>
+          <div className="row-per-page">
+            <label htmlFor="itemsPerPage">Items Per Page:</label>
+            <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
+              <option>3</option>
+              <option>5</option>
+              <option>10</option>
+            </select>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

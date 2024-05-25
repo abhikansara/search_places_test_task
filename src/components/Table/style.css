@@ -23,9 +23,44 @@ td {
   display: flex;
   justify-content: center;
   margin-top: 10px;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px !important;
 }
 
 .spinner-td {
-    height: 380px;
-    text-align: center;
+  height: 380px;
+  text-align: center;
+}
+
+.pagination button,
+.table-footer select {
+  padding: 8px;
+  font-size: 14px;
+  background: transparent;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 5px;
+  cursor: pointer;
+  line-height: 20px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.pagination label {
+  margin-right: 10px;
+}
+
+.table-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.row-per-page {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }

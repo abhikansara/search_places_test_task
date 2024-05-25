@@ -17,7 +17,7 @@ const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [cities, setCities] = useState<City[]>([]);
   const [total, setTotal] = useState<number>(0);
-  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
   const [limit, setLimit] = useState<number>(5);
 
