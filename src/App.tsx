@@ -52,7 +52,7 @@ const App: React.FC = () => {
   }, [currentPage, searchTerm, limit]);
 
   return (
-    <div>
+    <div className="root-container">
       <SearchBox onChange={setSearchTerm} placeholder="Search places..." />
       <Table
         loading={loading}
