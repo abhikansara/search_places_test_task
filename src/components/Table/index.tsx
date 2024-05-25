@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./style.css";
 import { City } from "../../App";
+import Spinner from "../Spinner";
 type TableProps = {
   loading: boolean;
   cities: City[];
@@ -43,7 +44,9 @@ const Table = ({
         <tbody>
           {loading && (
             <tr>
-              <td colSpan={3}>Loading...</td>
+              <td colSpan={3} className="spinner-td">
+                <Spinner />
+              </td>
             </tr>
           )}
           {!loading && cities.length === 0 && (
@@ -56,7 +59,11 @@ const Table = ({
           {!loading &&
             cities.map((city, index) => (
               <tr key={city.id}>
-                <td>{index + 1}</td>
+                <td>
+                  {index +
+                    1 +
+                    (currentPage > 1 ? (currentPage - 1) * itemsPerPage : 0)}
+                </td>
                 <td>{city.name}</td>
                 <td>
                   <img
