@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchBox from "./components/SearchBox";
-import { useDebounce } from "./hooks/useDebounce";
 import Table from "./components/Table";
 
 export type City = {
@@ -21,7 +20,6 @@ const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
   const [limit, setLimit] = useState<number>(5);
-  const debouncedSearchTerm = useDebounce(searchTerm);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +29,7 @@ const App: React.FC = () => {
         const response = await axios.get(API_URL, {
           params: {
             countryIds: "IN",
-            namePrefix: debouncedSearchTerm,
+            namePrefix: searchTerm,
             limit,
             offset,
           },
@@ -48,18 +46,14 @@ const App: React.FC = () => {
       setLoading(false);
     };
 
-    if (debouncedSearchTerm) {
+    if (searchTerm) {
       fetchData();
     }
-  }, [currentPage, debouncedSearchTerm, limit]);
+  }, [currentPage, searchTerm, limit]);
 
   return (
     <div>
-      <SearchBox
-        value={searchTerm}
-        onChange={setSearchTerm}
-        placeholder="Search places..."
-      />
+      <SearchBox onChange={setSearchTerm} placeholder="Search places..." />
       <Table
         loading={loading}
         cities={cities}

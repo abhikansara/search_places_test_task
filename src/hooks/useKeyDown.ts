@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 
-function useKeyPress(
+function useKeyDown(
   targetKey: string,
   callback: () => void,
   ctrlKey: boolean = false
@@ -22,4 +22,4 @@ function useKeyPress(
   }, [handleKeyDown, targetKey]);
 }
 
-export default useKeyPress;
+export default useKeyDown;
