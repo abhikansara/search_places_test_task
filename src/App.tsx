@@ -19,7 +19,7 @@ const App: React.FC = () => {
   const [total, setTotal] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
-  const [limit, setLimit] = useState<number>(5);
+  const [limit, setLimit] = useState<number>(3);
 
   useEffect(() => {
     const fetchData = async () => {

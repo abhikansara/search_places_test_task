@@ -22,7 +22,7 @@ const Table = ({
   onPreviousPage,
   totalPages,
 }: TableProps) => {
-  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
 
   const handleItemsPerPageChange = (e: any) => {
     const value = parseInt(e.target.value);
